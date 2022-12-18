@@ -1,5 +1,5 @@
 import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+// import "@nomicfoundation/hardhat-toolbox";
 import "@typechain/hardhat"
 import "@nomiclabs/hardhat-waffle"
 import "@nomiclabs/hardhat-etherscan"
@@ -30,10 +30,15 @@ const config: HardhatUserConfig = {
       chainId: 5,
   },
   },
+  namedAccounts: {
+    deployer: {
+        default: 0, // here this will by default take the first account as deployer
+         //1: 0, similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
+    },},
   solidity: {
     compilers: [
         {
-            version: "0.8.7",
+            version: "0.8.9",
         },
         {
             version: "0.4.24",
